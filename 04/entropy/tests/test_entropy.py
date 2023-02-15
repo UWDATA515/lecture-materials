@@ -1,7 +1,7 @@
 # Implementating a pattern test. Use functions in the test.
 import unittest
 import numpy as np
-from entropy.entropy import entropy
+from entropy import entropy
 
 import unittest
 
