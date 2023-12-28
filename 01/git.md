@@ -1,4 +1,4 @@
-DATA 515: Git
+# DATA 515: Git
 
 We've been talking about tools that you can use in the terminal and for programming, and we'll continue with version control.
 
