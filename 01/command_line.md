@@ -56,7 +56,7 @@ $ ls
 foo bar.txt
 ```
 
-Here, "pwd" stands for "present working directory", and it launches a computer program that displays the path to the current directory, where you are. We are in a folder called "homes" and a subfolder called "mwinst" (which is what we call my "home directory", just like your user's directory in Mac or Windows). "ls" stands for "list segments", and it lists all the files and folders within the present working directory. In this case, there is a folder called "foo" and a file called "bar.txt" in the current directory.
+Here, "pwd" stands for "present working directory", and it launches a computer program that displays the path to the current directory, where you are. We are in a folder called "Users" and a subfolder called "melissawinstanley" (which is what we call my "home directory", just like your user's directory in Mac or Windows). "ls" stands for "list segments", and it lists all the files and folders within the present working directory. In this case, there is a folder called "foo" and a file called "bar.txt" in the current directory.
 
 You can also provide arguments to a shell commend. You can add a folder after "ls" if you want to see the files inside a sub-folder. If there is a folder named "foo" in the present working directory, you can do
 
@@ -73,7 +73,7 @@ $ pwd
 /Users/melissawinstanley/foo
 ```
 
-Here, "cd" stands for "change directory", and we move from the current directory to a child directory called "foo". Note that here we've used the "relative path" for the child directory foo - since we are currently in the directory /homes/mwinst, we can provide the name of "foo" relative to that directory, which is just "foo". We could also have done this same thing with the "absolute path" of foo.
+Here, "cd" stands for "change directory", and we move from the current directory to a child directory called "foo". Note that here we've used the "relative path" for the child directory foo - since we are currently in the directory /Users/melissawinstanley, we can provide the name of "foo" relative to that directory, which is just "foo". We could also have done this same thing with the "absolute path" of foo.
 
 ```sh
 $ cd /Users/melissawinstanley/foo
