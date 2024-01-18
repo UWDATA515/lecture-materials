@@ -6,7 +6,7 @@ def read_csv(file_name):
         for line in file:
             cols = line.rstrip('\n').split(',')
             row = {}
-            for i in range(0, len(header)):
+            for i in range(len(header)):
                 row[header[i]] = cols[i]
             rows.append(row)
         return rows
