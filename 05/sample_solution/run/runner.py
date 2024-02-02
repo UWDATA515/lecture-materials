@@ -6,7 +6,7 @@
 # do the following, because it changes the python path
 # to the `run` directory, which can't easily refer to its
 # sibling `utils` module:
-#     python main.py
+#     python run/runner.py
 
 from utils.histogram import hist
 from utils.palindrome import is_palindrome
