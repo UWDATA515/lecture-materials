@@ -12,9 +12,12 @@ class TestEntropy(unittest.TestCase):
         entropy([0.5, 0.2, 0.3])
         self.assertTrue(True)
     
-    # One-shot test
+    # One-shot tests
     def test_certainty(self):
         self.assertAlmostEqual(0, entropy([1]))
+
+    def test_uneven_probabilities(self):
+        self.assertAlmostEqual(0, entropy([0, 1]))
 
     # Pattern test
     def test_equal_probability(self):
