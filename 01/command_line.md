@@ -365,19 +365,25 @@ $ man curl
 If I just curl, it's going to output everything to the terminal:
 
 ```sh
-$ curl https://data.seattle.gov/api/views/tw7j-dfaw/rows.csv?accessType=DOWNLOAD
+$ curl https://s3.amazonaws.com/pronto-data/open_data_year_one.zip
 ```
 
 But I want to save it in a file! Looking at the man page, we can see that there is a `-o` option that we can use to tell curl to put the data in a file:
 
 ```sh
-$ curl https://data.seattle.gov/api/views/tw7j-dfaw/rows.csv?accessType=DOWNLOAD -o pronto.csv
+$ curl https://s3.amazonaws.com/pronto-data/open_data_year_one.zip -o pronto.zip
 ```
 
-Now I want to examine some of that data. If I `cat` the entire file, it's huge! Too big. I just want to see some of it. Google tells us we can use `head`.
+That file is an archive. We want to unzip the zip file. How do you think we do that? `unzip`!
 
 ```sh
-$ head pronto.csv
+$ unzip pronto.zip
+```
+
+Now I want to examine some of that data. If I `cat` an entire file, it's huge! Too big. I just want to see some of it. Google tells us we can use `head`.
+
+```sh
+$ head 2015_trip_data.csv
 ```
 
 Tada! We've done it. Now we can put all of those commands together into a file - a script. Just create a new file (download_pronto.sh) and put all those commands in one line after another. You'll need to put the following line at the very top of the file:
@@ -468,13 +474,13 @@ Redirection is done entirely in the shell - the programs that you are running kn
 How could we use redirection instead of the `-o` option for the curl command, to redirect curl's output to a file? We could also do:
 
 ```sh
-curl https://data.seattle.gov/api/views/tw7j-dfaw/rows.csv?accessType=DOWNLOAD > pronto.csv
+curl https://s3.amazonaws.com/pronto-data/open_data_year_one.zip > pronto.zip
 ```
 
 Piping is a vary powerful idea. It means we don't have to execute commands in isolation - now we can string them together! This takes small, simple commands and creates a more useful output. For instance, curling the bike data produces a lot of output. We can navigate that output better by doing:
 
 ```sh
-$ curl https://data.seattle.gov/api/views/tw7j-dfaw/rows.csv?accessType=DOWNLOAD | less
+$ curl https://s3.amazonaws.com/pronto-data/open_data_year_one.zip | less
 ```
 
 This takes the output of curl - which is a lot - and uses it as the input stream of the less command. This is a nicer way to view the output.
