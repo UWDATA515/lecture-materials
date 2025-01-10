@@ -480,9 +480,9 @@ curl https://s3.amazonaws.com/pronto-data/open_data_year_one.zip > pronto.zip
 Piping is a vary powerful idea. It means we don't have to execute commands in isolation - now we can string them together! This takes small, simple commands and creates a more useful output. For instance, curling the bike data produces a lot of output. We can navigate that output better by doing:
 
 ```sh
-$ curl https://s3.amazonaws.com/pronto-data/open_data_year_one.zip | less
+$ curl https://s3.amazonaws.com/pronto-data/open_data_year_one.zip | unzip
 ```
 
-This takes the output of curl - which is a lot - and uses it as the input stream of the less command. This is a nicer way to view the output.
+This takes the output of curl - which is a lot - and unzips it - all in one line!
 
 One particular file on every Linux system that is useful when doing redirection is the file /dev/null. What is this file? Read up on it on your own and figure it out.
