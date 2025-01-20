@@ -24,7 +24,7 @@ def write_csv(rows, columns, output_file_name):
             # print(f"{','.join(map(lambda c : row[c], columns))}", file=file)
 
 if __name__ == '__main__':
-    file_rows = read_csv('pronto.csv')
+    file_rows = read_csv('2015_trip_data.csv')
     columns_we_want = [
         'trip_id',
         'starttime',
