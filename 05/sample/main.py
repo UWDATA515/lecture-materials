@@ -1,5 +1,6 @@
 # TODO: import so that is_palindrome and hist work
-
+from utils.histogram import hist
+from utils.palindrome import is_palindrome
 def main():
     print(is_palindrome('foo'))
     print(is_palindrome('fooboof'))
