@@ -1,5 +1,11 @@
 # DATA 515: The shell
 
+## Prep data
+
+Throughout the lesson, I'll be using this collection of sample data files to explore shell usage. Download this zip file and **unzip it to your Desktop folder**:
+
+https://swcarpentry.github.io/shell-novice/data/shell-lesson-data.zip
+
 ## File systems
 
 Let's start at the beginning. The data on your computer is stored in what we call a "file system". A file system is composed of "directories" or "folders", each of which contain other directories or individual "files", which contain data. This file system is actually a tree.
@@ -12,15 +18,15 @@ Let's start at the beginning. The data on your computer is stored in what we cal
               |              |              |
              ...            ...     ---------------
                                    |               |
-                           melissawinstanley     alice
+                              naomialterman      alice
                                    |               |
-                             ------------         ...
-                            |            |
-                        Documents    Downloads
-                            |            |
-                        ---------       ...
-                       |         |
-                      foo       bar.txt
+                             -------------        ...
+                            |             |
+                         Desktop       Downloads
+                            |             |
+                     -------------       ...
+                    |             |
+            shell-lesson-data   bar.txt
 
 A "path" is a route from the root to a file or directory.
 
@@ -28,9 +34,9 @@ We can refer to things in the file system either by their "absolute path" or the
 
 * The "absolute path" lists every directory that exists between a file and the root. For instance, in the prior example, the absolute path of bar.txt would be
     ```
-    /Users/melissawinstanley/Documents/bar.txt
+    /Users/naomialterman/Documents/bar.txt
     ```
-* The "relative path" says that, relative to the current directory that we're looking at, what is the path the the file? For instance, if we are currently in the "melissawinstanley" folder, then the path to bar.txt is only the part that occurs after melissawinstanley in the file tree.
+* The "relative path" says that, relative to the current directory that we're looking at, what is the path the the file? For instance, if we are currently in the "naomialterman" folder, then the path to bar.txt is only the part that occurs after naomialterman in the file tree.
     ```
     Documents/bar.txt
     ```
@@ -51,12 +57,12 @@ Now where are we? What do we see? We are running a program called a "shell" on y
 
 ```sh
 $ pwd
-/Users/melissawinstanley
+/Users/naomialterman
 $ ls
 foo bar.txt
 ```
 
-Here, "pwd" stands for "present working directory", and it launches a computer program that displays the path to the current directory, where you are. We are in a folder called "Users" and a subfolder called "melissawinstanley" (which is what we call my "home directory", just like your user's directory in Mac or Windows). "ls" stands for "list segments", and it lists all the files and folders within the present working directory. In this case, there is a folder called "foo" and a file called "bar.txt" in the current directory.
+Here, "pwd" stands for "present working directory", and it launches a computer program that displays the path to the current directory, where you are. We are in a folder called "Users" and a subfolder called "naomialterman" (which is what we call my "home directory", just like your user's directory in Mac or Windows). "ls" stands for "list segments", and it lists all the files and folders within the present working directory. In this case, there is a folder called "foo" and a file called "bar.txt" in the current directory.
 
 You can also provide arguments to a shell commend. You can add a folder after "ls" if you want to see the files inside a sub-folder. If there is a folder named "foo" in the present working directory, you can do
 
@@ -70,19 +76,19 @@ bar baz
 ```sh
 $ cd foo
 $ pwd
-/Users/melissawinstanley/foo
+/Users/naomialterman/foo
 ```
 
-Here, "cd" stands for "change directory", and we move from the current directory to a child directory called "foo". Note that here we've used the "relative path" for the child directory foo - since we are currently in the directory /Users/melissawinstanley, we can provide the name of "foo" relative to that directory, which is just "foo". We could also have done this same thing with the "absolute path" of foo.
+Here, "cd" stands for "change directory", and we move from the current directory to a child directory called "foo". Note that here we've used the "relative path" for the child directory foo - since we are currently in the directory /Users/naomialterman, we can provide the name of "foo" relative to that directory, which is just "foo". We could also have done this same thing with the "absolute path" of foo.
 
 ```sh
-$ cd /Users/melissawinstanley/foo
+$ cd /Users/naomialterman/foo
 ```
 
 How could I get back to the original directory? By providing the name of that directory.
 
 ```sh
-$ cd /Users/melissawinstanley
+$ cd /Users/naomialterman
 ```
 
 "View the contents of a file" becomes
@@ -209,8 +215,8 @@ There are some "special characters" that you can use in the shell.
 We can use these commands to simplify navigating the file system. To navigate up one level, before we had to give the full path of the parent directory:
 
 ```sh
-# if we are in /Users/melissawinstanley/foo/baz
-$ cd /Users/melissawinstanley/foo
+# if we are in /Users/naomialterman/foo/baz
+$ cd /Users/naomialterman/foo
 ```
 
 But now, we can use the .. shortcut to do the same thing:
@@ -222,7 +228,7 @@ $ cd ..  # moves one directory up in the file system
 Similarly for the home directory:
 
 ```sh
-$ cd /Users/melissawinstanley # old version
+$ cd /Users/naomialterman     # old version
 $ cd ~                        # using the special tilde character
 ```
 
@@ -292,7 +298,7 @@ $ echo "*"
 
 ## Text editor
 
-Now we're at a point where we really need a text editor so we can modify files. There's a lot of different command line text editors and a lot of passionate people who prefer one in particular. I *do not care* which text editor you use. My preferred text editor is emacs, but that's often more complicated than beginners need. I recommend nano for you all. You can read how to install it in the Software section of the course website.
+Now we're at a point where we really need a text editor so we can modify files. There's a lot of different command line text editors and a lot of passionate people who prefer one in particular. I *do not care* which text editor you use. When I'm in a terminal I usually use `nano`, which is *relatively* simple and installed almost everywhere.
 
 ## Customizing your experience
 
@@ -301,14 +307,14 @@ In your home directory, you can have two special files called ".bashrc" and ".ba
 ```bash
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/melissawinstanley/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/naomialterman/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/melissawinstanley/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/melissawinstanley/opt/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/naomialterman/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/naomialterman/opt/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/melissawinstanley/opt/miniconda3/bin:$PATH"
+        export PATH="/Users/naomialterman/opt/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -417,10 +423,10 @@ We can see who owns each file and what they're allowed to do by running the ls c
 
 ```sh
 $ ls -l download_pronto.sh
--rw-r--r--  1 melissawinstanley  staff   327B Jan  3 16:07 download_pronto.sh
+-rw-r--r--  1 naomialterman  staff   327B Jan  3 16:07 download_pronto.sh
 ```
 
-When we do this, we can see that each of I "own" the file (that's what the "melissawinstanley" means). We can also see a set of permissions that look like a combination of "drwx" and dashes. What does this mean? Well, the r means "read", w means "write", and x means "execute" (coming soon). And there are permissions for three different categories of people: the owner, the "group" (won't discuss this right now), and everyone. So in the above example, the owner can read, write or execute the file; anyone in the group can read or write the file; and the general population can read the file.
+When we do this, we can see that each of I "own" the file (that's what the "naomialterman" means). We can also see a set of permissions that look like a combination of "drwx" and dashes. What does this mean? Well, the r means "read", w means "write", and x means "execute" (coming soon). And there are permissions for three different categories of people: the owner, the "group" (won't discuss this right now), and everyone. So in the above example, the owner can read, write or execute the file; anyone in the group can read or write the file; and the general population can read the file.
 
 You can change the permissions on a file by using the command "chmod" (which stands for "change mode"). Look at the man page for chmod to learn more. If I want to enable anyone to execute the script, I can say:
 
